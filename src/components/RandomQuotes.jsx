@@ -4,7 +4,7 @@ import ReplayIcon from "@mui/icons-material/Replay";
 const RandomQuotes = () => {
   let quotes = [];
 
-  async function loadeQuotes() {
+  async function loadQuotes() {
     const response = await fetch("https://type.fit/api/quotes");
     quotes = await response.json();
   }
@@ -13,12 +13,12 @@ const RandomQuotes = () => {
     text: "Genius is one percent inspiration and ninety-nine percent perspiration.",
     author: "Thomas Edison",
   });
-  const randome = () => {
+  const random = () => {
     const select = quotes[Math.floor(Math.random() * quotes.length)];
     setQuote(select);
   };
 
-  loadeQuotes();
+  loadQuotes();
 
   return (
     <>
@@ -30,7 +30,7 @@ const RandomQuotes = () => {
           <div className="relod__btn">
             <button
               onClick={() => {
-                randome();
+                random();
               }}
             >
               <ReplayIcon />
